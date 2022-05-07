@@ -1,0 +1,172 @@
+<div class="container">
+  <h5>Questão 9:</h5>
+  <p>{{ itemA }}</p>
+  <p>{{ 1 + 1 }}</p>
+  <p>{{ itemC() }}</p>
+  <p>{{ true || true }}</p>
+  <p>{{ 0.51 | percent }}</p>
+</div>
+
+<div class="container">
+  <h5>Questão 10:</h5>
+
+  <ul class="list-group">
+    <li *ngFor="let pessoa of pessoas" class="list-group-item">
+      {{ pessoa.nome }} - {{ pessoa.sobrenome }}
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3">
+  <h5>Questão 11:</h5>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let pessoa of pessoas; let index = index"
+      class="list-group-item"
+      [class.active]="index == indexItemAtivo"
+    >
+      {{ pessoa.nome }} - {{ pessoa.sobrenome }}
+    </li>
+  </ul>
+  <button
+    [disabled]="indexItemAtivo == 0"
+    (click)="indexItemAtivo = indexItemAtivo - 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Cima
+  </button>
+  <button
+    [disabled]="indexItemAtivo == pessoas.length - 1"
+    (click)="indexItemAtivo = indexItemAtivo + 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Baixo
+  </button>
+</div>
+
+<div class="container mt-3">
+  <h5>Questão 12:</h5>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let pessoa of pessoas; let index = index"
+      class="list-group-item"
+      [class.active]="index == indexItemAtivo"
+    >
+      {{ pessoa.nome }} - {{ pessoa.sobrenome }}
+    </li>
+  </ul>
+  <button
+    [disabled]="indexItemAtivo == 0"
+    (click)="indexItemAtivo = indexItemAtivo - 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Cima
+  </button>
+  <button
+    [disabled]="indexItemAtivo == pessoas.length - 1"
+    (click)="indexItemAtivo = indexItemAtivo + 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Baixo
+  </button>
+  <button
+    (click)="pessoas.splice(indexItemAtivo, 1); indexItemAtivo = 0"
+    type="button"
+    class="btn btn-danger"
+  >
+    Remover
+  </button>
+</div>
+
+<div class="container mt-3">
+  <h5>Questão 13:</h5>
+
+  <div class="d-flex flex-row mb-3">
+    <input
+      [(ngModel)]="nome"
+      type="text"
+      class="form-control"
+      placeholder="Nome"
+    />
+    <input
+      [(ngModel)]="sobrenome"
+      type="text"
+      class="form-control"
+      placeholder="sobrenome"
+    />
+    <button
+      (click)="adicionar()"
+      type="button"
+      class="btn btn-primary"
+      [disabled]="!nome || !sobrenome"
+    >
+      Adicionar
+    </button>
+  </div>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let pessoa of pessoas; let index = index"
+      class="list-group-item"
+      [class.active]="index == indexItemAtivo"
+    >
+      {{ pessoa.nome }} - {{ pessoa.sobrenome }}
+    </li>
+  </ul>
+  <button
+    [disabled]="indexItemAtivo == 0"
+    (click)="indexItemAtivo = indexItemAtivo - 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Cima
+  </button>
+  <button
+    [disabled]="indexItemAtivo == pessoas.length - 1"
+    (click)="indexItemAtivo = indexItemAtivo + 1"
+    type="button"
+    class="btn btn-primary"
+  >
+    Baixo
+  </button>
+  <button
+    (click)="pessoas.splice(indexItemAtivo, 1); indexItemAtivo = 0"
+    type="button"
+    class="btn btn-danger"
+  >
+    Remover
+  </button>
+</div>
+
+<div class="container mt-3">
+  <h5>Questão 14:</h5>
+
+  <app-spinner [color]="'success'" [type]="'border'" [size]="2"></app-spinner>
+  <app-spinner [color]="'danger'" [type]="'grow'" [size]="3"></app-spinner>
+  <app-spinner [type]="'grow'" [size]="4"></app-spinner>
+  <app-spinner></app-spinner>
+</div>
+
+<div class="container mt-3">
+  <h5>Questão 15:</h5>
+
+  <app-dropdown
+    (onSelect)="onItemSelecionado($event)"
+    [itens]="[1, 2, 3]"
+    [color]="'success'"
+  >
+    Dropdown Button
+  </app-dropdown>
+  <app-dropdown
+    (onSelect)="onItemSelecionado($event)"
+    [itens]="['um', 'dois', 'três']"
+  >
+    Dropdown Button 2
+  </app-dropdown>
+</div>

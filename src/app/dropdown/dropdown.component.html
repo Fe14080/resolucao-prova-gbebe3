@@ -1,0 +1,19 @@
+<div class="dropdown">
+  <button
+    (click)="alternarShowDropdown()"
+    class="btn btn-{{ color }} dropdown-toggle"
+    type="button"
+  >
+    <ng-content></ng-content>
+  </button>
+  <ul class="dropdown-menu" [class.show]="showDropdown">
+    <li *ngFor="let item of itens">
+      <a
+        (click)="onSelect.emit(item); showDropdown = false"
+        class="dropdown-item"
+        href="#"
+        >{{ item }}</a
+      >
+    </li>
+  </ul>
+</div>
